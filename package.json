@@ -1,9 +1,9 @@
 {
   "name": "dsh-brand-text",
-  "version": "0.3.0",
-  "description": "Unified branding for the DSH (DeepSeek Harness) Web client: sidebar name & logo, hero copy, document title, favicon and PWA manifest — plus a settings panel (/brand-studio/) and in-page double-click editing.",
+  "version": "0.4.0",
+  "description": "DSH (DeepSeek Harness) branding in two layers: (1) basics — sidebar logo, sidebar name, hero title, document title, favicon and PWA manifest; (2) watermark — a translucent, opacity-tunable overlay on the page plus a stamping ledger that writes 'why this was added / what job is running' into project files and folders. Ships a settings panel (/brand-studio/) and in-page double-click editing.",
   "license": "MIT",
-  "author": "Shushushu-whn",
+  "author": "Shushushu-whn <230179612@aa.seu.edu.cn>",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
@@ -24,7 +24,8 @@
     "dsh-plugin",
     "deepseek-harness",
     "branding",
-    "logo"
+    "logo",
+    "watermark"
   ],
   "engines": {
     "node": ">=20"

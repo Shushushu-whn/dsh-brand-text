@@ -1,8 +1,8 @@
 // install.mjs —— 把 dsh-brand-text 装进任意 DSH profile（可重复执行，幂等）
 //
 // 用法：
-//   node install.mjs --profile "E:\工程库（训练用）\_ENGDB\dsh-home\profiles\web"
-//   node install.mjs --profile "D:\dsh\personal\profiles\web"
+//   node install.mjs --profile "C:\dsh\profiles\web"
+//   node install.mjs --profile "D:\another-dsh\profiles\web"
 //   node install.mjs --profile <dir> --no-install     # 只改 package.json，不跑 pnpm
 //
 // 做三件事：
