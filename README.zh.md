@@ -23,8 +23,8 @@ DSH（DeepSeek Harness）Web 端的**一体化品牌插件**：侧栏文字与 L
 ## 快速开始
 
 ```bash
-# 1. 装进某个 profile（路径换成你自己的）
-node install.mjs --profile "<profile 目录>"
+# 1. 装进某个 profile —— 优先从 GitHub 装（推荐）
+dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
 
 # 2. 重启那一套 DSH
 
@@ -32,7 +32,8 @@ node install.mjs --profile "<profile 目录>"
 #    http://127.0.0.1:<DSH 端口>/brand-studio/
 ```
 
-`install.mjs` 是幂等的：写 `link:` 依赖 → 加进 `bundles` → 跑一次 `pnpm install`，想跑几遍跑几遍。
+GitHub 这条路走不通时（没网、pnpm 拒绝构建 git 依赖、版本门禁），再退回本地安装：
+见 [安装 C](#c-本地目录离线--兜底)。
 
 ## 两种用法（同一份数据、同一套 API）
 
@@ -49,30 +50,40 @@ node install.mjs --profile "<profile 目录>"
 
 ## 安装
 
-### A. 本地目录（开发 / 自用，改代码即时生效）
+**推荐顺序：先 GitHub → 有 npm 包就用 npm → 都不行再本地安装。**
+
+### A. 直接从 GitHub 装（推荐）
 
 ```bash
+dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
+```
+
+装完重启 DSH。升级用 `dsh plugin --profile web update dsh-brand-text`（或删掉重装）。
+
+### B. 从 npm 装（发布后）
+
+```bash
+dsh plugin --profile web add dsh-brand-text
+```
+
+### C. 本地目录（离线 / 兜底）
+
+GitHub 这条路失败时用：没网、pnpm 不允许构建 git 依赖、或版本门禁拦住安装。
+
+```bash
+# 先下载或 clone 仓库，然后：
 cd /path/to/dsh-brand-text
 node install.mjs --profile "<profile 目录>"
 ```
+
+`install.mjs` 是幂等的：写 `link:` 依赖 → 加进 `bundles` → 跑一次 `pnpm install`，想跑几遍跑几遍。
+本地安装改 `lib/` 里的代码立即生效，不用重装。
 
 手工等价写法（在目标 profile 里）：
 
 1. `dependencies` 加 `"dsh-brand-text": "link:<插件绝对路径>"`
 2. `dsh.profile.bundles` 里加上 `"dsh-brand-text"`
 3. 在 profile 目录执行 `pnpm install --no-frozen-lockfile`
-
-### B. 直接从 GitHub 装
-
-```bash
-dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
-```
-
-### C. 从 npm 装（发布后）
-
-```bash
-dsh plugin --profile web add dsh-brand-text
-```
 
 ## 卸载
 

@@ -23,8 +23,8 @@ so you do **not** need to install that one.
 ## Quick start
 
 ```bash
-# 1. install into a profile (pick your own path)
-node install.mjs --profile "<path-to-profile>"
+# 1. install into a profile — GitHub first (recommended)
+dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
 
 # 2. restart that DSH instance
 
@@ -32,8 +32,8 @@ node install.mjs --profile "<path-to-profile>"
 #    http://127.0.0.1:<dsh-port>/brand-studio/
 ```
 
-`install.mjs` is idempotent: it writes a `link:` dependency, adds the plugin to `bundles`,
-then runs `pnpm install`. Run it as often as you like.
+If the GitHub route fails (network, pnpm build blocked, version gate), fall back to a local copy —
+see [Install C](#c-from-a-local-folder-offline--fallback).
 
 ## Two ways to edit (same data, same API)
 
@@ -50,30 +50,43 @@ The dialog exposes the same three fields as the panel: sidebar name (= page/tab 
 
 ## Install
 
-### A. From a local folder (development / personal use, edits apply immediately)
+**Recommended order: GitHub first → npm (if published) → local copy as the fallback.**
+
+### A. Straight from GitHub (recommended)
 
 ```bash
+dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
+```
+
+Restart DSH afterwards. Updates are just `dsh plugin --profile web update dsh-brand-text`
+(or remove + add again).
+
+### B. From npm (when published)
+
+```bash
+dsh plugin --profile web add dsh-brand-text
+```
+
+### C. From a local folder (offline / fallback)
+
+Use this when the GitHub route fails — no network, pnpm blocked from building a git dependency,
+or a version gate stops the install.
+
+```bash
+# download or clone the repo, then:
 cd /path/to/dsh-brand-text
 node install.mjs --profile "<path-to-profile>"
 ```
+
+`install.mjs` is idempotent: it writes a `link:` dependency, adds the plugin to `bundles`,
+then runs `pnpm install`. Run it as often as you like.
+Local installs pick up your edits immediately (no reinstall needed after changing `lib/`).
 
 Manual equivalent, inside the target profile:
 
 1. add `"dsh-brand-text": "link:<absolute path to this plugin>"` to `dependencies`
 2. add `"dsh-brand-text"` to `dsh.profile.bundles`
 3. run `pnpm install --no-frozen-lockfile` in the profile directory
-
-### B. Straight from GitHub
-
-```bash
-dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
-```
-
-### C. From npm (once published)
-
-```bash
-dsh plugin --profile web add dsh-brand-text
-```
 
 ## Uninstall
 
