@@ -77,20 +77,20 @@ GitHub 这条路走不通时（没网、pnpm 拒绝构建 git 依赖、版本门
 
 ## 安装
 
-**推荐顺序：先 GitHub → 有 npm 包就用 npm → 都不行再本地安装。**
+**推荐顺序：先 npm（预构建产物，免 pnpm 构建）→ GitHub → 都不行再本地安装。**
 
-### A. 直接从 GitHub 装（推荐）
+### A. 从 npm 装（推荐）
 
 ```bash
-dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
+dsh plugin --profile web add dsh-brand-text
 ```
 
 装完重启 DSH。升级用 `dsh plugin --profile web update dsh-brand-text`（或删掉重装）。
 
-### B. 从 npm 装（发布后）
+### B. 直接从 GitHub 装
 
 ```bash
-dsh plugin --profile web add dsh-brand-text
+dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
 ```
 
 ### C. 本地目录（离线 / 兜底）

@@ -49,8 +49,8 @@ restores the previous `desktop.ini`, and clears the folder attribute.
 ## Quick start
 
 ```bash
-# 1. install into a profile — GitHub first (recommended)
-dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
+# 1. install into a profile — npm first (recommended)
+dsh plugin --profile web add dsh-brand-text
 
 # 2. restart that DSH instance
 
@@ -77,21 +77,21 @@ The dialog keeps the same order as the panel: **① basics first** (name, hero t
 
 ## Install
 
-**Recommended order: GitHub first → npm (if published) → local copy as the fallback.**
+**Recommended order: npm first (prebuilt, no pnpm build) → GitHub → local copy as the fallback.**
 
-### A. Straight from GitHub (recommended)
+### A. From npm (recommended)
 
 ```bash
-dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
+dsh plugin --profile web add dsh-brand-text
 ```
 
 Restart DSH afterwards. Updates are just `dsh plugin --profile web update dsh-brand-text`
 (or remove + add again).
 
-### B. From npm (when published)
+### B. Straight from GitHub
 
 ```bash
-dsh plugin --profile web add dsh-brand-text
+dsh plugin --profile web add github:Shushushu-whn/dsh-brand-text
 ```
 
 ### C. From a local folder (offline / fallback)
