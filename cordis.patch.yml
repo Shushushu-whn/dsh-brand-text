@@ -1,0 +1,23 @@
+# ================================================================
+# dsh-brand-text —— 品牌设置（一体化插件）
+#
+# 一个插件干完原来的两件事：
+#   1. 浏览器标题 / 左上角文字 / 左上角 Logo / favicon / PWA 图标
+#   2. 空会话中央那句文案（官方写死成 i18n，没有插槽）
+# 另带可视化设置面板：http://127.0.0.1:<DSH端口>/brand-studio/
+#
+# install: dsh plugin --profile <profile> add <本目录>
+# 想重复安装到另一套 DSH（例如个人版）就换 profile 再跑一次。
+# ================================================================
+- insert:
+    - id: dsh-brand-text
+      name: 'dsh-brand-text'
+      inject: [webServer]
+      # configPath 留空 = 用插件目录下的 brand.json；
+      # 各 profile 可在自己的 cordis.patch.yml 里按 id 覆盖成自己的品牌数据文件。
+      config:
+        configPath: ''
+
+# 关掉官方那条品牌行，品牌位交给本插件（与 dsh-client-ui-brand 同样的做法）
+- id: ui-brand-official
+  disabled: true

@@ -1,0 +1,52 @@
+{
+  "name": "dsh-brand-text",
+  "version": "0.3.0",
+  "description": "DSH Web 品牌设置（一体化）：左上角文字与 Logo、中央文案、浏览器标题/favicon/PWA；自带设置面板 /brand-studio/ 与页面内双击就地编辑",
+  "license": "MIT",
+  "author": "Shushushu-whn",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": { "default": "./lib/index.js" },
+    "./client": { "default": "./lib/client/index.js" },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "install.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "branding",
+    "logo"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shushushu-whn/dsh-brand-text.git"
+  },
+  "homepage": "https://github.com/Shushushu-whn/dsh-brand-text#readme",
+  "bugs": {
+    "url": "https://github.com/Shushushu-whn/dsh-brand-text/issues"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

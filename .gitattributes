@@ -1,0 +1,5 @@
+# 统一换行符，避免 Windows/Linux 贡献者互相制造 diff 噪音
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
