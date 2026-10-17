@@ -1,7 +1,7 @@
 {
   "name": "dsh-brand-text",
   "version": "0.3.0",
-  "description": "DSH Web 品牌设置（一体化）：左上角文字与 Logo、中央文案、浏览器标题/favicon/PWA；自带设置面板 /brand-studio/ 与页面内双击就地编辑",
+  "description": "Unified branding for the DSH (DeepSeek Harness) Web client: sidebar name & logo, hero copy, document title, favicon and PWA manifest — plus a settings panel (/brand-studio/) and in-page double-click editing.",
   "license": "MIT",
   "author": "Shushushu-whn",
   "type": "module",
@@ -16,6 +16,7 @@
     "cordis.patch.yml",
     "install.mjs",
     "README.md",
+    "README.zh.md",
     "LICENSE"
   ],
   "keywords": [
